@@ -1,7 +1,7 @@
 # ✨ Notes Application
 
 A simple, elegant, and fully responsive **Notes Application** built with **Node.js**, **Express**, and **JavaScript**.  
-This app allows users to create, edit, delete, and manage their notes 
+This app allows users to create, edit, delete, and manage their notes.
 
 ---
 
