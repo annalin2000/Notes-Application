@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;  
 
 app.use(cors()); 
 app.use(express.json());
@@ -36,6 +36,7 @@ function isJsonString(str) {
   }
   return true;
 }
+
 
 app.get("/note", (req, res) => {
   const notes = readData();
@@ -80,6 +81,13 @@ app.delete("/note/:id", (req, res) => {
   writeData(newNotes);
   res.status(200).json({ message: "Note deleted successfully" });
 });
+
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
