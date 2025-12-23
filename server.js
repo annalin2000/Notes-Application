@@ -2,17 +2,12 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const { v4: uuidv4 } = require('uuid');
-const cors = require('cors'
-)
+const cors = require('cors');
+
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 
-// CORS configuration for production
-const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' ? 'https://notes-application-1khc.onrender.com' : '*',
-};
-
-app.use(cors(corsOptions));
+app.use(cors()); 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
