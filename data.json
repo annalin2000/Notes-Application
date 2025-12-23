@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ac10a61d-b5ae-453c-a247-a5a203b1cc94",
+    "text": "Clean the plate",
+    "created_date": "2025-12-23T12:17:04.322Z",
+    "updated_date": "2025-12-23T12:18:00.924Z"
+  },
+  {
+    "id": "53317218-17ae-4fbb-9483-5ba1a2d6a0ad",
+    "text": "Write blogs",
+    "created_date": "2025-12-23T12:17:08.195Z"
+  },
+  {
+    "id": "1fcbaef9-fd1b-4492-8762-fda292ec5b53",
+    "text": "Walk the dog",
+    "created_date": "2025-12-23T12:17:15.966Z"
+  },
+  {
+    "id": "75eec71f-395d-461e-9257-663bd94a43b2",
+    "text": "Get groceries",
+    "created_date": "2025-12-23T12:17:24.354Z"
+  },
+  {
+    "id": "b0338ce5-cd4e-4dfc-8ce1-d4b7709dc0a7",
+    "text": "Do laundry",
+    "created_date": "2025-12-23T12:17:55.722Z",
+    "updated_date": "2025-12-23T12:18:10.348Z"
+  }
+]

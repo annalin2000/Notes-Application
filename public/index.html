@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Note-Taking App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>✨ Note-Taking App</h1>
+  </header>
+
+  <main>
+    <section aria-labelledby="add-note-heading">
+      <h2 id="add-note-heading" class="visually-hidden">Add a new note</h2>
+      <form id="noteForm" class="row" autocomplete="off">
+        <label for="noteText" class="visually-hidden">New note</label>
+        <input
+          id="noteText"
+          name="noteText"
+          type="text"
+          placeholder="What is on your mind?"
+          aria-describedby="Alert"
+          aria-label="New note"
+          required
+        />
+        <button id="AddUpdateClick" type="submit" class="btn-add">
+          Add
+        </button>
+      </form>
+      <p id="Alert" class="alert" role="status" aria-live="polite" aria-atomic="true"></p>
+    </section>
+
+    <aside aria-labelledby="count-heading">
+      <h2 id="count-heading" class="visually-hidden">Note count</h2>
+      <output id="count" aria-live="polite" aria-atomic="true"></output>
+    </aside>
+
+    <section aria-labelledby="note-list-heading">
+      <h2 id="note-list-heading">Your Notes</h2>
+      <ul id="list-items" aria-live="polite">
+        <li class="empty-state" aria-label="No notes yet">
+          <span class="empty-icon" aria-hidden="true">📝</span>
+          <p class="empty-text">No notes yet</p>
+          <p class="empty-subtext">Start by adding your first note above</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
