@@ -11,16 +11,17 @@ const elements = {
   form: document.getElementById('noteForm')
 };
 
-const apiUrl = process.env.NODE_ENV === 'production'
-  ? 'https://notes-application-1khc.onrender.com' 
-  : 'http://localhost:3001'; 
+
+const API_BASE_URL = window.location.hostname === "localhost"
+  ? "http://localhost:3001"  
+  : "https://notes-application-1khc.onrender.com"; 
 
 document.addEventListener('DOMContentLoaded', () => {
   fetchNotes();
 });
 
 function fetchNotes() {
-  fetch(`${apiUrl}/note`)
+  fetch(`${API_BASE_URL}/note`) 
     .then((response) => response.json())
     .then((data) => {
       notes.length = 0;
@@ -94,7 +95,7 @@ function render() {
       });
 
       li.querySelector('.btn-delete').addEventListener('click', () => {
-        fetch(`${apiUrl}/note/${note.id}`, {
+        fetch(`${API_BASE_URL}/note/${note.id}`, {  
           method: 'DELETE',
         })
           .then(() => {
@@ -136,7 +137,7 @@ elements.form.addEventListener('submit', (e) => {
       editingId = null;  
       setMode('add');  
 
-      fetch(`${apiUrl}/note`, {
+      fetch(`${API_BASE_URL}/note`, { 
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(note),
@@ -153,7 +154,7 @@ elements.form.addEventListener('submit', (e) => {
       return;
     }
 
-    fetch(`${apiUrl}/note`, {
+    fetch(`${API_BASE_URL}/note`, {  
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text }),
