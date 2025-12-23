@@ -33,7 +33,7 @@ cd Notes-Application
 2. Install dependencies:
 
 ```bash
-npm i
+npm install
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ npm i
 1. Start the server:
 
 ```bash
-npm run dev
+npm start
 ```
 
 2. Open your browser and navigate to:
