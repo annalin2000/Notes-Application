@@ -11,12 +11,16 @@ const elements = {
   form: document.getElementById('noteForm')
 };
 
+const apiUrl = process.env.NODE_ENV === 'production'
+  ? 'https://notes-application-1khc.onrender.com' 
+  : 'http://localhost:3001'; 
+
 document.addEventListener('DOMContentLoaded', () => {
   fetchNotes();
 });
 
 function fetchNotes() {
-  fetch('http://localhost:3001/note')
+  fetch(`${apiUrl}/note`)
     .then((response) => response.json())
     .then((data) => {
       notes.length = 0;
@@ -90,7 +94,7 @@ function render() {
       });
 
       li.querySelector('.btn-delete').addEventListener('click', () => {
-        fetch(`http://localhost:3001/note/${note.id}`, {
+        fetch(`${apiUrl}/note/${note.id}`, {
           method: 'DELETE',
         })
           .then(() => {
@@ -132,7 +136,7 @@ elements.form.addEventListener('submit', (e) => {
       editingId = null;  
       setMode('add');  
 
-      fetch('http://localhost:3001/note', {
+      fetch(`${apiUrl}/note`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(note),
@@ -149,8 +153,7 @@ elements.form.addEventListener('submit', (e) => {
       return;
     }
 
-  
-    fetch('http://localhost:3001/note', {
+    fetch(`${apiUrl}/note`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text }),
